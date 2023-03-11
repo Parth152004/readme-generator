@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Readme file generator</title>
+</head>
+
+<body>
+    <center>
+        <h1>Generate Your Readme File with Ease</h1>
+        <hr>
+    </center>
+
+    <main>
+        <div class="title">
+            <h2>Title</h2>
+            <form action="/add-element/title" method="post">
+                <input type="text" id="title" name="title" placeholder="enter title">
+            </form>
+        </div>
+        <div class="sub-title">
+            <h2>Sub title</h2>
+            <form action="/add-element/sub-title" method="post">
+                <input type="text" id="sub-title" name="sub-title" placeholder="enter sub-title">
+            </form>
+        </div>
+        <div class="bash">
+            <h2>Bash</h2>
+            <form action="/add-element/bash" method="post">
+                <input type="text" id="bash" name="bash" placeholder="enter code to be displayed in bash">
+            </form>
+        </div>
+        <div class="code-snipate">
+            <h2>Code</h2>
+            <form action="/add-element/code-snipate" method="post">
+                <input type="text" id="language" name="language" placeholder="enter the programming language">
+                <textarea type="text" id="code-snipate" name="code-snipate" placeholder="enter code"></textarea>
+            </form>
+        </div>
+        <div class="link">
+            <h2>Link</h2>
+            <form action="/add-element/link" method="post">
+                <input type="text" id="display-text" name="display-text" placeholder="Enter text to be displayed">
+                <input type="text" id="link" name="link" placeholder="Enter link">
+            </form>
+        </div>
+
+        <a href="/generate-readme">Generate README</a>
+
+    </main>
+
+
+    <script>
+        const title = document.getElementById('title')
+
+        function submitForm() {
+            // console.log(title.value)
+            document.priceOptionForm.submit();
+            document.priceOptionForm.method = 'post';
+        }
+
+        title.addEventListener("keypress", () => {
+            if (window.event.keyCode === 13){
+                submitForm()
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

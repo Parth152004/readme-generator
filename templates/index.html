@@ -18,56 +18,75 @@
     <main>
         <div class="title">
             <h2>Title</h2>
-            <form action="/add-element/title" method="post">
+            <form action="/add-element/title" method="post" onkeydown="checkButton()">
                 <input type="text" id="title" name="title" placeholder="enter title">
             </form>
         </div>
-        <div class="sub-title">
-            <h2>Sub title</h2>
-            <form action="/add-element/sub-title" method="post">
-                <input type="text" id="sub-title" name="sub-title" placeholder="enter sub-title">
-            </form>
-        </div>
-        <div class="bash">
-            <h2>Bash</h2>
-            <form action="/add-element/bash" method="post">
-                <input type="text" id="bash" name="bash" placeholder="enter code to be displayed in bash">
-            </form>
-        </div>
-        <div class="code-snipate">
-            <h2>Code</h2>
-            <form action="/add-element/code-snipate" method="post">
-                <input type="text" id="language" name="language" placeholder="enter the programming language">
-                <textarea type="text" id="code-snipate" name="code-snipate" placeholder="enter code"></textarea>
-            </form>
-        </div>
-        <div class="link">
-            <h2>Link</h2>
-            <form action="/add-element/link" method="post">
-                <input type="text" id="display-text" name="display-text" placeholder="Enter text to be displayed">
-                <input type="text" id="link" name="link" placeholder="Enter link">
+
+        <div class="text">
+            <h2>Normal Text</h2>
+            <form action="/add-element/text" method="post" onkeydown="checkButton()">
+                <input type="text" id="text" name="text" placeholder="Enter text">
             </form>
         </div>
 
-        <a href="/generate-readme">Generate README</a>
+        <div class="sub-title">
+            <h2>Sub title</h2>
+            <form action="/add-element/sub-title" method="post" onkeydown="checkButton()">
+                <input type="text" id="sub-title" name="sub-title" placeholder="enter sub-title">
+            </form>
+        </div>
+
+        <div class="bash">
+            <h2>Bash</h2>
+            <form action="/add-element/bash" method="post" onkeydown="checkButton()">
+                <input type="text" id="bash" name="bash" placeholder="enter code to be displayed in bash">
+            </form>
+        </div>
+
+        <div class="code-snipate">
+            <h2>Code</h2>
+            <form id="multiple-attribute-form" action="/add-element/code-snipate" method="post">
+                <input type="text" id="language" onkeydown="disableSubmit(this)" name="language" placeholder="enter the programming language">
+                <textarea style="height: 200px;" type="text" id="code-snipate" name="code-snipate" onkeydown="checkButton()" placeholder="enter code"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+
+        <div class="link">
+            <h2>Link</h2>
+            <form id="multiple-attribute-form" action="/add-element/link" method="post">
+                <input type="text" id="display-text" onkeydown="disableSubmit(this)" name="display-text" placeholder="Enter text to be displayed">
+                <input type="text" id="link" name="link" placeholder="Enter link">
+                <button type="submit">Send</button>
+            </form>
+        </div>
+
+        <hr>
+
+        <a href="/generate-readme">Download README</a>
 
     </main>
 
 
     <script>
-        const title = document.getElementById('title')
+        const language = document.getElementById('language')
 
         function submitForm() {
-            // console.log(title.value)
             document.priceOptionForm.submit();
             document.priceOptionForm.method = 'post';
         }
-
-        title.addEventListener("keypress", () => {
+        function checkButton() {
             if (window.event.keyCode === 13){
                 submitForm()
             }
-        })
+        }
+        function disableSubmit(){
+            if (window.event.keyCode === 13){
+                this.event.preventDefault()
+            }
+        }
+
 
     </script>
 

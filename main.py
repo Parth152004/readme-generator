@@ -12,25 +12,39 @@ def Home():
 
 @app.post('/add-element/<type>')
 def AddElement(type):
-    if type == "title":
-        text = request.form.get('title')
-        with open('row_readme.txt', 'a+') as f:
+    with open('README.md', 'a+') as f:
+        if type == "title":
+            text = request.form.get('title')
             f.write("# " + text + '\n\n')
-            f.close()
 
-    if type == "sub-title":
-        text = request.form.get('sub-title')
-        with open('row_readme.txt', 'a+') as f:
+        if type == "text":
+            text = request.form.get("text")
+            f.write(text + '\n\n')
+
+        if type == "sub-title":
+            text = request.form.get('sub-title')
             f.write("## " + text + '\n\n')
-            f.close()
 
+        if type == "bash":
+            text = request.form.get('bash')
+            f.write("```bash\n" + text + "\n```\n\n")
+
+        if type == "code-snipate":
+            text = request.form.get('code-snipate')
+            language = request.form.get('language')
+            f.write(f"```{language}\n" + text + "\n```\n\n")
+
+        if type == "link":
+            text = request.form.get('display-text')
+            link = request.form.get('link')
+            f.write(f"[{text}]({link})" + '\n\n')
+
+        f.close()
     return redirect('/')
 
-@app.route('/generate-readme')
-def GenerateReadMe():
+@app.route('/download-readme')
+def DownloadReadMe():
 
-    shutil.copy('row_readme.txt', 'yourreadme.md')
-    
     return redirect('/')
 
 if __name__ == "__main__":

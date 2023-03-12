@@ -1,7 +1,7 @@
 input{
     padding: 0.5rem 0.7rem;
     font-size: 1.3rem;
-    width: 40%;
+    width: 50%;
     margin: 1rem 2rem;
     border-radius: 10px;
     border: 1px solid black;
@@ -12,7 +12,7 @@ a{
     display: flex;
     justify-content: center;
     text-align: center;
-    margin: 0 40%;
+    width: fit-content;
     text-transform: none;
     text-decoration: none;
     color: black;
@@ -21,17 +21,25 @@ a{
     background-color: rgb(190, 190, 190);
     border: none;
     outline: none;
+    margin: 2rem;
     font-size: 1.5rem;
 
 }
 
 textarea{
+    width: 50%;
     padding: 0.5rem 0.7rem;
     font-size: 1.3rem;
-    width: 40%;
     height: 10rem;
     margin: 1rem 2rem;
     border-radius: 10px;
     border: 1px solid black;
     outline: none;
+}
+
+button{
+    font-size: 1.3rem;
+    padding: 0.5rem 0.7rem;
+    display: block;
+    margin: 0 2rem;
 }
